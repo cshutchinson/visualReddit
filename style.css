@@ -1,5 +1,5 @@
 body{
-  background-color: lightblue;
+  background-color: white;
   font-family: sans-serif;
   margin-left: 2%;
 }
@@ -9,7 +9,7 @@ h1 {
 }
 
 div.observationInfo>th ,div.observationInfo>td {
-  background-color: lightblue;
+  background-color: white;
   padding-left: 0px;
   font-size: 14px;
 
