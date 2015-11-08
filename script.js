@@ -44,6 +44,30 @@ $(document).ready(function(){
       // low: "51"
       // text: "Rain"
       var outlook = base.item.forecast; //outlook is an array with 5 elements
+      var conditionImageUrlPrefix = "http://l.yimg.com/a/i/us/we/52/";
+      var imagePrefix = '<img src="' + conditionImageUrlPrefix;
+      buildTableRow(outlook, 'day', 1, '.outlook', '');
+      buildTableRow(outlook, 'high', 0, '.outlook', base.units.temperature);
+      buildTableRow(outlook, 'code', 0, '.outlook', '', '.gif"', imagePrefix, '/>');
+      buildTableRow(outlook, 'low', 0, '.outlook', base.units.temperature);
     });
   });
 });
+
+function buildTableRow(arr, prop, heading, target, unit, imgType, prefix, postfix){
+  //heading should be passed as 0 or 1 for appropriate tag img-rounded
+  imgType = imgType || '';
+  prefix = prefix || '';
+  postfix = postfix || '';
+  var openTag=['<td>', '<th>'];
+  var closeTag=['</td>', '</th>'];
+  var store = '<tr>';
+  arr.forEach(function(elem){
+    store += openTag[heading] + prefix + elem[prop] + imgType + postfix + unit + closeTag[heading];
+  });
+  store += '</tr>';
+  console.log(store);
+  return($(target).append(store));
+}
+
+// '<img src="' + base + data + '/>'
