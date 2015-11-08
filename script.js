@@ -26,6 +26,10 @@ $(document).ready(function(){
       $('#bp').append(base.atmosphere.pressure);
       $('#bpt').append(base.atmosphere.rising);
       $('#vis').append(base.atmosphere.visibility);
+      //wind
+      $('#windDirection').append(base.wind.direction);
+      $('#windSpeed').append(base.wind.speed);
+      $('#windChill').append(base.wind.chill);
     });
   });
 });
