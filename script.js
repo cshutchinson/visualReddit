@@ -13,7 +13,7 @@ $(document).ready(function(){
     request = urlFirstPart + city + urlBetweenCityState + state + urlSecondPart;
 
     $.get(request,  function(data){
-      $('div.observationInfo').html('');
+      $('div.observationInfo').html('<th>Last Observation</th>');
       $('div.astronomy').html('\
         <table class="astronomy">\
           <tr>\
@@ -29,8 +29,8 @@ $(document).ready(function(){
         <table class="atmosphere">\
           <tr>\
             <th>Humidity</th>\
-            <th>Barometric Pressure</th>\
-            <th>BP Trend</th>\
+            <th>Pressure</th>\
+            <th>Trend</th>\
             <th>Visibility</th>\
           </tr>\
           <tr>\
@@ -45,7 +45,7 @@ $(document).ready(function(){
           <tr>\
             <th>Wind Direction</th>\
             <th>Wind Speeed</th>\
-            <th>WindChill</th>\
+            <th>Wind Chill</th>\
           </tr>\
           <tr>\
             <td id="windDirection"></td>\
@@ -71,9 +71,9 @@ $(document).ready(function(){
         </table>');
 
       var base = data.query.results.channel;
-      console.log(data.query.results.channel);
+
       //observation info
-      $('div.observationInfo').append(base.lastBuildDate);
+      $('div.observationInfo').append('<td>' + base.lastBuildDate + '</td');
       //astronomy
       $('#sunrise').append(base.astronomy.sunrise);
       $('#sunset').append(base.astronomy.sunset);
@@ -97,7 +97,7 @@ $(document).ready(function(){
       var conditionImageUrlPrefix = "http://l.yimg.com/a/i/us/we/52/";
       var imagePrefix = '<img src="' + conditionImageUrlPrefix;
       buildTableRow(outlook, 'day', 1, 'table.outlook', '');
-      buildTableRow(outlook, 'date', 1, 'table.outlook', '');
+      // buildTableRow(outlook, 'date', 1, 'table.outlook', '');
       buildTableRow(outlook, 'high', 0, 'table.outlook', base.units.temperature);
       buildTableRow(outlook, 'code', 0, 'table.outlook', '', '.gif"', imagePrefix, '/>');
       buildTableRow(outlook, 'low', 0, 'table.outlook', base.units.temperature);
@@ -110,12 +110,15 @@ function buildTableRow(arr, prop, heading, target, unit, imgType, prefix, postfi
   imgType = imgType || '';
   prefix = prefix || '';
   postfix = postfix || '';
+
   var openTag=['<td>', '<th>'];
   var closeTag=['</td>', '</th>'];
   var store = '<tr>';
+
   arr.forEach(function(elem){
     store += openTag[heading] + prefix + elem[prop] + imgType + postfix + unit + closeTag[heading];
   });
+
   store += '</tr>';
   return($(target).append(store));
 }

@@ -5,25 +5,35 @@
     <title>Current Weather Conditions</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
   </head>
   <body>
     <h1>Current Weather</h1>
     <div class="input">
-      <span>
-        <label for="city">City</label>
-        <input id="city" type="text" name="city" placeHolder="City" value="Denver" autofocus="true">
-      </span>
-      <span>
-        <label for="state">State</label>
-        <input id="state" type="text" name="state" placeHolder="State" value="CO">
-      </span>
-      <input id="submit" type="button" name="submit" value="Submit">
+      <div class="city">
+        <span>
+          <label for="city">City</label>
+          <input id="city" type="text" name="city" placeHolder="City" value="Denver" autofocus="true">
+        </span>
+      </div>
+      <div class="state">
+        <span>
+          <label for="state">State</label>
+          <input id="state" type="text" name="state" placeHolder="State" value="CO">
+        </span>
+      </div>
+      <div class="submit">
+        <input id="submit" type="button" name="submit" value="Submit">
+      </div>
+      <hr>
     </div>
-    <div class="observationInfo"></div>
-    <div class="astronomy"></div>
-    <div class="atmosphere"></div>
-    <div class="wind"></div>
-    <div class="condition"></div>
-    <div class="outlook"></div>
+    <div class="container">
+      <div class="observationInfo"></div>
+      <div class="condition"></div>
+      <div class="atmosphere"></div>
+      <div class="wind"></div>
+      <div class="astronomy"></div>
+      <div class="outlook"></div>
+    </div>
   </body>
 </html>
