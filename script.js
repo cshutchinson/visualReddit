@@ -36,6 +36,14 @@ $(document).ready(function(){
       $('#temperature').append(base.item.condition.temp + base.units.temperature);
       $('#observation').append("<img src=" + conditionImageUrl + "/>");
       $('#observationText').append(base.item.condition.text);
+      //five day outlook
+      // code: "12"
+      // date: "8 Nov 2015"
+      // day: "Sun"
+      // high: "59"
+      // low: "51"
+      // text: "Rain"
+      var outlook = base.item.forecast; //outlook is an array with 5 elements
     });
   });
 });
