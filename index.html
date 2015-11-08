@@ -2,11 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Visual Reddit</title>
+    <title>Current Weather Conditions</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
-
+    <h1>Current Weather</h1>
+    <span>
+      <label for="city">City</label>
+      <input id="city" type="text" name="city" placeHolder="City" value="Florence" autofocus="true">
+    </span>
+    <span>
+      <label for="state">State</label>
+      <input id="state" type="text" name="state" placeHolder="State" value="SC">
+    </span>
+    <input id="submit" type="button" name="submit" value="Submit">
+    <table class="astronomy">
+      <tr>
+        <th>Sunrise</th>
+        <th>Sunset</th>
+      </tr>
+      <tr>
+        <td id="sunrise"></td>
+        <td id="sunset"></td>
+      </tr>
+    </table>
   </body>
 </html>
