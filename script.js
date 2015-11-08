@@ -8,23 +8,79 @@ var urlFirstPart = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20fro
 
 $(document).ready(function(){
   $('#submit').on('click', function(){
-    // console.log('click');
     city = $('#city').val();
     state = $('#state').val();
     request = urlFirstPart + city + urlBetweenCityState + state + urlSecondPart;
-    // console.log(result);
+
     $.get(request,  function(data){
+      $('div.observationInfo').html('');
+      $('div.astronomy').html('\
+        <table class="astronomy">\
+          <tr>\
+            <th>Sunrise</th>\
+            <th>Sunset</th>\
+          </tr>\
+          <tr>\
+            <td id="sunrise"></td>\
+            <td id="sunset"></td>\
+          </tr>\
+        </table>');
+      $('div.atmosphere').html('\
+        <table class="atmosphere">\
+          <tr>\
+            <th>Humidity</th>\
+            <th>Barometric Pressure</th>\
+            <th>BP Trend</th>\
+            <th>Visibility</th>\
+          </tr>\
+          <tr>\
+            <td id="humidity"></td>\
+            <td id="bp"></td>\
+            <td id="bpt"></td>\
+            <td id="vis"></td>\
+          </tr>\
+        </table>');
+      $('div.wind').html('\
+        <table class="wind">\
+          <tr>\
+            <th>Wind Direction</th>\
+            <th>Wind Speeed</th>\
+            <th>WindChill</th>\
+          </tr>\
+          <tr>\
+            <td id="windDirection"></td>\
+            <td id="windSpeed"></td>\
+            <td id="windChill"</td>\
+          </tr>\
+        </table>');
+      $('div.condition').html('\
+        <table class="condition">\
+          <tr>\
+            <th>Temperature</th>\
+            <th>Observation</th>\
+            <th>Conditions</th>\
+          </tr>\
+          <tr>\
+            <td id="temperature"></td>\
+            <td id="observation"></td>\
+            <td id="observationText"></td>\
+          </tr>\
+        </table>');
+      $('div.outlook').html('\
+        <table class="outlook">\
+        </table>');
+
       var base = data.query.results.channel;
       console.log(data.query.results.channel);
       //observation info
-      $('#observationInfo').append(base.lastBuildDate);
+      $('div.observationInfo').append(base.lastBuildDate);
       //astronomy
       $('#sunrise').append(base.astronomy.sunrise);
       $('#sunset').append(base.astronomy.sunset);
       //atomosphere
       $('#humidity').append(base.atmosphere.humidity + '%');
       $('#bp').append(base.atmosphere.pressure + ' ' + base.units.pressure);
-      $('#bpt').append(base.atmosphere.rising);
+      $('#bpt').append(base.atmosphere.rising); //steady (0), rising (1), or falling (2)
       $('#vis').append(base.atmosphere.visibility + ' ' + base.units.distance);
       //wind
       $('#windDirection').append(base.wind.direction);
@@ -37,25 +93,20 @@ $(document).ready(function(){
       $('#observation').append("<img src=" + conditionImageUrl + "/>");
       $('#observationText').append(base.item.condition.text);
       //five day outlook
-      // code: "12"
-      // date: "8 Nov 2015"
-      // day: "Sun"
-      // high: "59"
-      // low: "51"
-      // text: "Rain"
       var outlook = base.item.forecast; //outlook is an array with 5 elements
       var conditionImageUrlPrefix = "http://l.yimg.com/a/i/us/we/52/";
       var imagePrefix = '<img src="' + conditionImageUrlPrefix;
-      buildTableRow(outlook, 'day', 1, '.outlook', '');
-      buildTableRow(outlook, 'high', 0, '.outlook', base.units.temperature);
-      buildTableRow(outlook, 'code', 0, '.outlook', '', '.gif"', imagePrefix, '/>');
-      buildTableRow(outlook, 'low', 0, '.outlook', base.units.temperature);
+      buildTableRow(outlook, 'day', 1, 'table.outlook', '');
+      buildTableRow(outlook, 'date', 1, 'table.outlook', '');
+      buildTableRow(outlook, 'high', 0, 'table.outlook', base.units.temperature);
+      buildTableRow(outlook, 'code', 0, 'table.outlook', '', '.gif"', imagePrefix, '/>');
+      buildTableRow(outlook, 'low', 0, 'table.outlook', base.units.temperature);
     });
   });
 });
 
 function buildTableRow(arr, prop, heading, target, unit, imgType, prefix, postfix){
-  //heading should be passed as 0 or 1 for appropriate tag img-rounded
+  //heading should be passed as 0 or 1 for appropriate tag
   imgType = imgType || '';
   prefix = prefix || '';
   postfix = postfix || '';
@@ -66,8 +117,5 @@ function buildTableRow(arr, prop, heading, target, unit, imgType, prefix, postfi
     store += openTag[heading] + prefix + elem[prop] + imgType + postfix + unit + closeTag[heading];
   });
   store += '</tr>';
-  console.log(store);
   return($(target).append(store));
 }
-
-// '<img src="' + base + data + '/>'
