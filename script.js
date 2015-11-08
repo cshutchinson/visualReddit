@@ -22,14 +22,14 @@ $(document).ready(function(){
       $('#sunrise').append(base.astronomy.sunrise);
       $('#sunset').append(base.astronomy.sunset);
       //atomosphere
-      $('#humidity').append(base.atmosphere.humidity);
-      $('#bp').append(base.atmosphere.pressure);
+      $('#humidity').append(base.atmosphere.humidity + '%');
+      $('#bp').append(base.atmosphere.pressure + ' ' + base.units.pressure);
       $('#bpt').append(base.atmosphere.rising);
-      $('#vis').append(base.atmosphere.visibility);
+      $('#vis').append(base.atmosphere.visibility + ' ' + base.units.distance);
       //wind
       $('#windDirection').append(base.wind.direction);
-      $('#windSpeed').append(base.wind.speed);
-      $('#windChill').append(base.wind.chill);
+      $('#windSpeed').append(base.wind.speed + ' ' + base.units.speed);
+      $('#windChill').append(base.wind.chill + base.units.temperature);
     });
   });
 });
