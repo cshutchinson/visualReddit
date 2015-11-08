@@ -8,24 +8,47 @@
   </head>
   <body>
     <h1>Current Weather</h1>
-    <span>
-      <label for="city">City</label>
-      <input id="city" type="text" name="city" placeHolder="City" value="Florence" autofocus="true">
-    </span>
-    <span>
-      <label for="state">State</label>
-      <input id="state" type="text" name="state" placeHolder="State" value="SC">
-    </span>
-    <input id="submit" type="button" name="submit" value="Submit">
-    <table class="astronomy">
-      <tr>
-        <th>Sunrise</th>
-        <th>Sunset</th>
-      </tr>
-      <tr>
-        <td id="sunrise"></td>
-        <td id="sunset"></td>
-      </tr>
-    </table>
+    <div class="input">
+      <span>
+        <label for="city">City</label>
+        <input id="city" type="text" name="city" placeHolder="City" value="Florence" autofocus="true">
+      </span>
+      <span>
+        <label for="state">State</label>
+        <input id="state" type="text" name="state" placeHolder="State" value="SC">
+      </span>
+      <input id="submit" type="button" name="submit" value="Submit">
+    </div>
+    <div id="observationInfo">
+
+    </div>
+    <div class="observation">
+      <table class="astronomy">
+        <tr>
+          <th>Sunrise</th>
+          <th>Sunset</th>
+        </tr>
+        <tr>
+          <td id="sunrise"></td>
+          <td id="sunset"></td>
+        </tr>
+      </table>
+      <table class="atmosphere">
+        <tr>
+          <th>Humidity</th>
+          <th>Barometric Pressure</th>
+          <th>BP Trend</th>
+          <th>Visibility</th>
+        </tr>
+        <tr>
+          <td id="humidity"></td>
+          <td id="bp"></td>
+          <td id="bpt"></td>
+          <td id="vis"></td>
+        </tr>
+      </table>
+    </div>
+
+
   </body>
 </html>

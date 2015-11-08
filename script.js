@@ -16,11 +16,16 @@ $(document).ready(function(){
     $.get(request,  function(data){
       var base = data.query.results.channel;
       console.log(data.query.results.channel);
+      //observation info
+      $('#observationInfo').append(base.lastBuildDate);
       //astronomy
       $('#sunrise').append(base.astronomy.sunrise);
       $('#sunset').append(base.astronomy.sunset);
       //atomosphere
-      
+      $('#humidity').append(base.atmosphere.humidity);
+      $('#bp').append(base.atmosphere.pressure);
+      $('#bpt').append(base.atmosphere.rising);
+      $('#vis').append(base.atmosphere.visibility);
     });
   });
 });
