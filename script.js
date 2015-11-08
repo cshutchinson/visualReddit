@@ -30,6 +30,12 @@ $(document).ready(function(){
       $('#windDirection').append(base.wind.direction);
       $('#windSpeed').append(base.wind.speed + ' ' + base.units.speed);
       $('#windChill').append(base.wind.chill + base.units.temperature);
+      //current conditions
+      var conditionImageUrl = '"http://l.yimg.com/a/i/us/we/52/' +
+        base.item.condition.code + '.gif"';
+      $('#temperature').append(base.item.condition.temp + base.units.temperature);
+      $('#observation').append("<img src=" + conditionImageUrl + "/>");
+      $('#observationText').append(base.item.condition.text);
     });
   });
 });
