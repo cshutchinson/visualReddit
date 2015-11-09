@@ -11,37 +11,62 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
-          <h1>Ad-Free Weather</h1>
-          <div class="input form-inline">
-            <div class="form-group city">
-              <span>
-                <label for="city">City</label>
-                <input id="city" type="text" name="city" placeHolder="City" value="Denver" autofocus="true">
-              </span>
-            </div>
-            <div class="form-group state">
-              <span>
-                <label for="state">State</label>
-                <input id="state" type="text" name="state" placeHolder="State" value="CO">
-              </span>
-            </div>
-            <div class="form-group submit">
-              <input class="btn btn-primary" id="submit" type="button" name="submit" value="Submit">
-            </div>
+        <div class="col-sm-12 text-center">
+          <h1>Current Weather</h1>
+          <h4>An ad-free experience...</h4>
+          <hr>
+        </div>
+      </div>
+      <div class="row input">
+        <div class="col-sm-4">
+          <div class="form-group city">
+            <span>
+              <label for="city">City</label>
+              <input id="city" type="text" name="city" placeHolder="City" value="Denver" autofocus="true">
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group state">
+            <span>
+              <label for="state">State</label>
+              <input id="state" type="text" name="state" placeHolder="State" value="CO">
+            </span>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="observationInfo"></div>
-          <div class="condition"></div>
-          <div class="atmosphere"></div>
-          <div class="wind"></div>
-          <div class="astronomy"></div>
-          <div class="outlook"></div>
+        <div class="col-sm-4">
+          <div class="form-group submit">
+            <input class="btn btn-primary" id="submit" type="button" name="submit" value="Submit">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- <hr> -->
+          <div class="observationInfo panel-success"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="condition panel-success"></div>
+        </div>
+        <div class="col-md-6">
+          <div class="astronomy panel-success"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="atmosphere panel-success"></div>
+        </div>
+        <div class="col-md-6">
+          <div class="wind panel-success"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="outlook panel-success"></div>
         </div>
       </div>
     </div>

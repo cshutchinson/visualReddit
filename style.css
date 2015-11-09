@@ -1,34 +1,12 @@
 body{
-  background-color: white;
-  /*font-family: sans-serif;*/
-  margin-left: 2%;
+  font-family: sans-serif;
+  background-color: aliceblue;
 }
 
 h1 {
-  font-size: 22px;
-}
-
-div.observationInfo>th ,div.observationInfo>td {
-  background-color: white;
-  padding-left: 25px;
-  font-size: 14px;
-
+  /*font-size: 22px;*/
 }
 
 th, td , tr{
   text-align: center;
-  font-size: 18px;
-  background-color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-
-}
-
-div.input > div{
-  display: inline-block;
-}
-
-div.observationInfo, div.astronomy, div.atmosphere, div.wind ,div.condition, div.outlook {
-  margin-top: 20px;
-  /*margin-left: ;*/
 }

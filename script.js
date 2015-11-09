@@ -13,9 +13,11 @@ $(document).ready(function(){
     request = urlFirstPart + city + urlBetweenCityState + state + urlSecondPart;
 
     $.get(request,  function(data){
-      $('div.observationInfo').html('<th>Last Observation</th>');
+      $('div.observationInfo').html('\
+        <table class="table table-striped table-condensed table-responsive">\
+        </table>');
       $('div.astronomy').html('\
-        <table class="astronomy">\
+        <table class="astronomy table table-striped table-condensed table-responsive">\
           <tr>\
             <th>Sunrise</th>\
             <th>Sunset</th>\
@@ -26,7 +28,7 @@ $(document).ready(function(){
           </tr>\
         </table>');
       $('div.atmosphere').html('\
-        <table class="atmosphere">\
+        <table class="atmosphere table table-striped table-condensed table-responsive">\
           <tr>\
             <th>Humidity</th>\
             <th>Pressure</th>\
@@ -41,7 +43,7 @@ $(document).ready(function(){
           </tr>\
         </table>');
       $('div.wind').html('\
-        <table class="wind">\
+        <table class="wind  table table-striped table-condensed table-responsive">\
           <tr>\
             <th>Wind Direction</th>\
             <th>Wind Speeed</th>\
@@ -54,7 +56,7 @@ $(document).ready(function(){
           </tr>\
         </table>');
       $('div.condition').html('\
-        <table class="condition">\
+        <table class="condition  table table-striped table-condensed table-responsive">\
           <tr>\
             <th>Temperature</th>\
             <th>Observation</th>\
@@ -67,7 +69,7 @@ $(document).ready(function(){
           </tr>\
         </table>');
       $('div.outlook').html('\
-        <table class="outlook">\
+        <table class="outlook table table-striped table-condensed table-responsive">\
         </table>');
 
       var base = data.query.results.channel;
