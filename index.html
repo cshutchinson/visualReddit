@@ -4,36 +4,46 @@
     <meta charset="utf-8">
     <title>Current Weather Conditions</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
   </head>
   <body>
-    <h1>Ad-Free Weather</h1>
-    <div class="input">
-      <div class="city">
-        <span>
-          <label for="city">City</label>
-          <input id="city" type="text" name="city" placeHolder="City" value="Denver" autofocus="true">
-        </span>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Ad-Free Weather</h1>
+          <div class="input form-inline">
+            <div class="form-group city">
+              <span>
+                <label for="city">City</label>
+                <input id="city" type="text" name="city" placeHolder="City" value="Denver" autofocus="true">
+              </span>
+            </div>
+            <div class="form-group state">
+              <span>
+                <label for="state">State</label>
+                <input id="state" type="text" name="state" placeHolder="State" value="CO">
+              </span>
+            </div>
+            <div class="form-group submit">
+              <input class="btn btn-primary" id="submit" type="button" name="submit" value="Submit">
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="state">
-        <span>
-          <label for="state">State</label>
-          <input id="state" type="text" name="state" placeHolder="State" value="CO">
-        </span>
-      </div>
-      <div class="submit">
-        <input id="submit" type="button" name="submit" value="Submit">
-      </div>
-      <hr>
     </div>
     <div class="container">
-      <div class="observationInfo"></div>
-      <div class="condition"></div>
-      <div class="atmosphere"></div>
-      <div class="wind"></div>
-      <div class="astronomy"></div>
-      <div class="outlook"></div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="observationInfo"></div>
+          <div class="condition"></div>
+          <div class="atmosphere"></div>
+          <div class="wind"></div>
+          <div class="astronomy"></div>
+          <div class="outlook"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
