@@ -109,6 +109,7 @@ $(document).ready(function(){
 
 function buildTableRow(arr, prop, heading, target, unit, imgType, prefix, postfix){
   //heading should be passed as 0 or 1 for appropriate tag
+  //bad code
   imgType = imgType || '';
   prefix = prefix || '';
   postfix = postfix || '';
